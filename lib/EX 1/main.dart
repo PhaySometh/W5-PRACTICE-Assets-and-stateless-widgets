@@ -12,19 +12,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hobbies"),
-        ),
+        appBar: AppBar(title: Text("My Hobbies"), centerTitle: false),
         backgroundColor: Colors.amber,
         body: Padding(
           padding: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              HobbyCard(title: "Travelling", icon: Icons.travel_explore, color: Colors.green,),
+              HobbyCard(
+                title: "Travelling",
+                icon: Icons.travel_explore,
+                color: Colors.green,
+              ),
               SizedBox(height: 10),
-              HobbyCard(title: "Skating", icon: Icons.skateboarding, color: Colors.blueGrey,),
-            ]
+              HobbyCard(
+                title: "Skating",
+                icon: Icons.skateboarding,
+                color: Colors.blueGrey,
+              ),
+            ],
           ),
         ),
       ),
@@ -37,7 +43,8 @@ class HobbyCard extends StatelessWidget {
   final IconData icon;
   final Color? color;
 
-  HobbyCard({
+  const HobbyCard({
+    super.key,
     required this.title,
     required this.icon,
     this.color = Colors.blue,
@@ -45,7 +52,7 @@ class HobbyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container (
+    return Container(
       padding: EdgeInsets.all(30),
       decoration: BoxDecoration(
         color: color,
@@ -54,15 +61,9 @@ class HobbyCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Icon(
-            icon,
-            color: Colors.white,
-          ),
+          Icon(icon, color: Colors.white),
           SizedBox(width: 20),
-          Text(
-            title,
-            style: TextStyle(fontSize: 24, color: Colors.white),
-          ),
+          Text(title, style: TextStyle(fontSize: 24, color: Colors.white)),
         ],
       ),
     );
